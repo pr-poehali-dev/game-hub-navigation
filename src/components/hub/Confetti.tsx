@@ -31,7 +31,7 @@ const Confetti = ({ trigger }: { trigger: number }) => {
 
   return (
     <>
-      <div className="pointer-events-none fixed inset-0 z-[60] animate-[twinkle_0.5s_ease] bg-gradient-radial from-fuchsia-400/30 via-transparent to-transparent" />
+      <div className="pointer-events-none fixed inset-0 z-[60] animate-[twinkle_0.5s_ease] bg-primary/10" />
       <div className="pointer-events-none fixed inset-0 z-[61] overflow-hidden">
         {pieces.map((p) => (
           <span

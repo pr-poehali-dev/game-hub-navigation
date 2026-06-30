@@ -4,44 +4,44 @@
 
 @layer base {
   :root {
-    --background: 231 60% 13%;
-    --foreground: 250 60% 96%;
+    --background: 220 33% 97%;
+    --foreground: 230 25% 12%;
 
-    --card: 232 50% 18%;
-    --card-foreground: 250 60% 96%;
+    --card: 0 0% 100%;
+    --card-foreground: 230 25% 12%;
 
-    --popover: 232 50% 16%;
-    --popover-foreground: 250 60% 96%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 25% 12%;
 
-    --primary: 320 90% 65%;
-    --primary-foreground: 231 60% 10%;
+    --primary: 235 70% 56%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 270 80% 65%;
-    --secondary-foreground: 250 60% 96%;
+    --secondary: 230 30% 94%;
+    --secondary-foreground: 230 25% 18%;
 
-    --muted: 232 40% 24%;
-    --muted-foreground: 250 25% 72%;
+    --muted: 225 25% 95%;
+    --muted-foreground: 230 12% 48%;
 
-    --accent: 38 95% 58%;
-    --accent-foreground: 231 60% 10%;
+    --accent: 235 70% 56%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 358 80% 58%;
-    --destructive-foreground: 250 60% 98%;
+    --destructive: 358 75% 56%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 270 50% 35%;
-    --input: 232 40% 24%;
-    --ring: 320 90% 65%;
+    --border: 228 22% 90%;
+    --input: 228 22% 90%;
+    --ring: 235 70% 56%;
 
-    --radius: 1.25rem;
+    --radius: 1.5rem;
 
-    --sidebar-background: 232 50% 16%;
-    --sidebar-foreground: 250 60% 96%;
-    --sidebar-primary: 320 90% 65%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 230 25% 18%;
+    --sidebar-primary: 235 70% 56%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 270 80% 65%;
-    --sidebar-accent-foreground: 250 60% 96%;
-    --sidebar-border: 270 50% 35%;
-    --sidebar-ring: 320 90% 65%;
+    --sidebar-accent: 225 25% 95%;
+    --sidebar-accent-foreground: 230 25% 18%;
+    --sidebar-border: 228 22% 90%;
+    --sidebar-ring: 235 70% 56%;
   }
 }
 
@@ -62,52 +62,53 @@
   h4,
   .font-display {
     font-family: "Unbounded", sans-serif;
+    letter-spacing: -0.02em;
   }
 }
 
 @layer utilities {
+  .panel {
+    background: hsl(0 0% 100%);
+    border: 1px solid hsl(228 22% 92%);
+    box-shadow:
+      0 1px 2px hsla(230, 25%, 20%, 0.04),
+      0 14px 36px -16px hsla(230, 40%, 30%, 0.12);
+  }
+
+  .panel-soft {
+    background: hsl(0 0% 100% / 0.72);
+    backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid hsl(228 30% 94% / 0.85);
+    box-shadow: 0 8px 28px -18px hsla(230, 40%, 30%, 0.2);
+  }
+
   .glass {
-    background: linear-gradient(
-      135deg,
-      hsla(232, 50%, 30%, 0.4),
-      hsla(270, 50%, 25%, 0.25)
-    );
-    backdrop-filter: blur(18px) saturate(140%);
-    border: 1px solid hsla(320, 80%, 70%, 0.18);
+    background: hsl(0 0% 100% / 0.6);
+    backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid hsl(228 30% 92% / 0.9);
   }
 
   .glass-strong {
-    background: linear-gradient(
-      135deg,
-      hsla(232, 55%, 24%, 0.75),
-      hsla(270, 55%, 22%, 0.6)
-    );
-    backdrop-filter: blur(24px) saturate(160%);
-    border: 1px solid hsla(320, 80%, 70%, 0.25);
+    background: hsl(0 0% 100%);
+    border: 1px solid hsl(228 22% 92%);
+    box-shadow:
+      0 1px 2px hsla(230, 25%, 20%, 0.04),
+      0 14px 36px -16px hsla(230, 40%, 30%, 0.12);
   }
 
   .text-gradient {
-    background: linear-gradient(
-      135deg,
-      hsl(320 95% 70%),
-      hsl(270 90% 70%),
-      hsl(38 95% 60%)
-    );
+    background: linear-gradient(120deg, hsl(235 75% 54%), hsl(255 70% 60%));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .neon-glow {
-    box-shadow:
-      0 0 24px hsla(320, 90%, 65%, 0.45),
-      0 0 60px hsla(270, 80%, 60%, 0.3);
+    box-shadow: 0 10px 30px -8px hsla(235, 70%, 56%, 0.45);
   }
 
   .gold-glow {
-    box-shadow:
-      0 0 20px hsla(38, 95%, 58%, 0.5),
-      0 0 50px hsla(28, 90%, 55%, 0.3);
+    box-shadow: 0 10px 30px -8px hsla(235, 70%, 56%, 0.3);
   }
 }
 
@@ -117,7 +118,7 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-14px);
+    transform: translateY(-10px);
   }
 }
 
@@ -125,11 +126,9 @@
   0%,
   100% {
     transform: scale(1);
-    opacity: 0.85;
   }
   50% {
-    transform: scale(1.06);
-    opacity: 1;
+    transform: scale(1.03);
   }
 }
 
@@ -144,8 +143,8 @@
 
 @keyframes pulse-ring {
   0% {
-    transform: scale(0.9);
-    opacity: 0.7;
+    transform: scale(0.95);
+    opacity: 0.6;
   }
   70% {
     transform: scale(1.5);
@@ -156,22 +155,10 @@
   }
 }
 
-@keyframes drift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 @keyframes reveal {
   from {
     opacity: 0;
-    transform: translateY(24px) scale(0.96);
+    transform: translateY(20px) scale(0.97);
   }
   to {
     opacity: 1;
@@ -182,10 +169,26 @@
 @keyframes twinkle {
   0%,
   100% {
-    opacity: 0.3;
+    opacity: 0.2;
   }
   50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes zoom-district {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+    filter: blur(10px);
+  }
+  60% {
     opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -193,17 +196,13 @@
   animation: float 5s ease-in-out infinite;
 }
 .animate-breathe {
-  animation: breathe 3.5s ease-in-out infinite;
+  animation: breathe 4s ease-in-out infinite;
 }
 .animate-spin-slow {
-  animation: spin-slow 40s linear infinite;
+  animation: spin-slow 50s linear infinite;
 }
 .animate-spin-rev {
-  animation: spin-slow 60s linear infinite reverse;
-}
-.animate-drift {
-  background-size: 200% 200%;
-  animation: drift 8s ease infinite;
+  animation: spin-slow 70s linear infinite reverse;
 }
 .animate-reveal {
   animation: reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -211,12 +210,15 @@
 .animate-twinkle {
   animation: twinkle 3s ease-in-out infinite;
 }
+.animate-zoom-district {
+  animation: zoom-district 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
 
 .pulse-ring::after {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 9999px;
-  border: 2px solid hsl(320 90% 65%);
+  border: 2px solid hsl(235 70% 56%);
   animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

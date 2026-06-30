@@ -46,6 +46,23 @@ export const worldEvents: WorldEvent[] = [
   { id: 4, type: 'Аукцион', dot: 'bg-yellow-400', title: 'Редкий аватар «Дракон»', reward: 'NFT', timer: '00:48:09' },
 ];
 
+export interface Quest {
+  id: number;
+  title: string;
+  desc: string;
+  icon: string;
+  reward: string;
+  progress: number;
+  difficulty: string;
+}
+
+export const districtQuests: Quest[] = [
+  { id: 1, title: 'Первое открытие', desc: 'Изучи историю района и его культурный код', icon: 'BookOpen', reward: '+120 💎', progress: 100, difficulty: 'Лёгкий' },
+  { id: 2, title: 'Творческий вызов', desc: 'Создай работу в стиле этой культуры', icon: 'Palette', reward: '+250 💎', progress: 45, difficulty: 'Средний' },
+  { id: 3, title: 'Командная миссия', desc: 'Объединись с 3 исследователями района', icon: 'Users', reward: '+80 ⚡', progress: 0, difficulty: 'Средний' },
+  { id: 4, title: 'Мастер района', desc: 'Заверши все квесты и получи титул', icon: 'Crown', reward: '🏆 Титул', progress: 0, difficulty: 'Сложный' },
+];
+
 export const currencies = [
   { id: 'crystals', emoji: '💎', label: 'Кристаллы', value: '2 480', color: 'text-fuchsia-300' },
   { id: 'energy', emoji: '⚡', label: 'Энергия', value: '74', color: 'text-amber-300' },
