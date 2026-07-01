@@ -1,21 +1,26 @@
 import Icon from '@/components/ui/icon';
-import { Mode } from '@/data/hub';
+import { Mode, DirectionId } from '@/data/hub';
 
-const discoveryBranches = [
-  { name: 'Творчество', leaves: ['🎨', '🎭', '🎵'] },
-  { name: 'Наука', leaves: ['🔬', '🧪'] },
-  { name: 'Спорт', leaves: ['⚽', '🏃'] },
-  { name: 'Лидерство', leaves: ['👑'] },
+const discoveryBranches: { name: string; leaves: string[]; dir: DirectionId }[] = [
+  { name: 'Творчество', leaves: ['🎨', '🎭', '🎵'], dir: 'creativity' },
+  { name: 'Наука',      leaves: ['🔬', '🧪'],       dir: 'science' },
+  { name: 'Спорт',      leaves: ['⚽', '🏃'],       dir: 'sport' },
+  { name: 'Лидерство',  leaves: ['👑'],              dir: 'leadership' },
 ];
 
 const impactSkills = [
-  { name: 'Аналитика', level: 8 },
+  { name: 'Аналитика',    level: 8 },
   { name: 'Коммуникация', level: 6 },
-  { name: 'Стратегия', level: 7 },
-  { name: 'Менторство', level: 4 },
+  { name: 'Стратегия',    level: 7 },
+  { name: 'Менторство',   level: 4 },
 ];
 
-const TalentPanel = ({ mode }: { mode: Mode }) => {
+interface TalentPanelProps {
+  mode: Mode;
+  onDirection: (id: DirectionId) => void;
+}
+
+const TalentPanel = ({ mode, onDirection }: TalentPanelProps) => {
   const isDiscovery = mode === 'discovery';
 
   return (
@@ -32,14 +37,21 @@ const TalentPanel = ({ mode }: { mode: Mode }) => {
           <div className="text-5xl animate-float">🌳</div>
           <div className="w-full space-y-2">
             {discoveryBranches.map((b) => (
-              <div key={b.name} className="flex items-center justify-between rounded-2xl border border-border bg-secondary/50 px-3 py-2">
+              <button
+                key={b.name}
+                onClick={() => onDirection(b.dir)}
+                className="flex w-full items-center justify-between rounded-2xl border border-border bg-secondary/50 px-3 py-2 text-left transition-all hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-sm"
+              >
                 <span className="text-xs font-semibold text-foreground">{b.name}</span>
-                <span className="flex gap-1 text-base">
-                  {b.leaves.map((l, i) => (
-                    <span key={i} className="animate-breathe" style={{ animationDelay: `${i * 0.3}s` }}>{l}</span>
-                  ))}
-                </span>
-              </div>
+                <div className="flex items-center gap-1">
+                  <span className="flex gap-0.5 text-base">
+                    {b.leaves.map((l, i) => (
+                      <span key={i} className="animate-breathe" style={{ animationDelay: `${i * 0.3}s` }}>{l}</span>
+                    ))}
+                  </span>
+                  <Icon name="ChevronRight" size={13} className="ml-1 text-muted-foreground" />
+                </div>
+              </button>
             ))}
           </div>
         </div>
